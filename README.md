@@ -1,2 +1,2 @@
-# ExperimentS2
-2nd semester
+# menu-book-svelte
+- 2nd semester Project
