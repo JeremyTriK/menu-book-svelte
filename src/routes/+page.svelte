@@ -98,7 +98,6 @@
 </body>
 
 <style>
-  /** CSS Reset */
   *,
   body {
     font-family: 'Barlow';
