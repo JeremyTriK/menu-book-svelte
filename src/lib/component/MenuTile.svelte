@@ -8,9 +8,9 @@
       export let price2: string; 
 </script>
     <div class="menu-tile">
-        <div class="menu-photo">
-          <img src={photoUrl} alt={name} />
-        </div>
+      <div class="menu-photo">
+        <img src={photoUrl} alt={name} />
+      </div>
       <div class="menu-tile-name">{name}</div>
       <div class="menu-tile-description">{desc}</div>
       <div class="menu-price-row">

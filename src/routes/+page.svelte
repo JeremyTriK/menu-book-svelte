@@ -1,5 +1,32 @@
-<script>
+<script lang="ts">
 	import MenuTile from '../lib/component/MenuTile.svelte';
+
+	const menus = [
+		{
+			photoUrl:'https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg?resize=960%2C503',
+			name:'Avocado Pesto Salad',
+			desc:'Home-grown vegetables with loads of avocado, topped with mouthwatering pesto salad',
+			price:'35',
+			pricedesc:'',
+			price2:'',
+			pricedesc:'+ Grilled Salmon',			
+		},
+		{
+			photoUrl:'https://www.recipetineats.com/wp-content/uploads/2023/05/Garlic-cheese-pizza_9.jpg',
+			name:'Triple Cheese Pizza',
+			desc:'Indulge yourself in this simple yet delicious delicacy',			
+		},
+		{
+			photoUrl:'https://images.theconversation.com/files/525691/original/file-20230511-19-w9pz4k.jpg?ixlib=rb-1.1.0&rect=5%2C2%2C1905%2C1276&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip',
+			name:'Seasonal Wine',
+			desc:'A great meal becomes perfect when combined with a good wine',			
+		},
+		{
+			photoUrl:'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_512,h_512/https://www.adityabirlacapital.com/healthinsurance/active-together/wp-content/uploads/2019/12/How-Are-Espressos-Good-For-Health_blog-1.gif',
+			name:'Coffee',
+			desc:'The best coffee you can have from the land of Indonesia',			
+		},
+	];
 </script>
 
 <head>
@@ -27,46 +54,9 @@
 		<div class="price-note">All prices are in thousand rupiah</div>
 	</div>
 	<div class="menu-area">
-		<div class="menu-row">
-			<MenuTile
-				photoUrl="https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg?resize=960%2C503"
-				name="Avocado Pesto Salad"
-				desc="Home-grown vegetables with loads of avocado, topped with mouthwatering pesto salad"
-				pricedesc=""
-				price="35"
-				pricedesc2="+ Grilled Salmon"
-				price2="55"
-			/>
-			<MenuTile
-				photoUrl="https://www.recipetineats.com/wp-content/uploads/2023/05/Garlic-cheese-pizza_9.jpg"
-				name="Triple Cheese Pizza"
-				desc="Indulge yourself in this simple yet delicious delicacy"
-				pricedesc="1 Slice"
-				price="15"
-				pricedesc2="Pan (6 slices)"
-				price2="60"
-			/>
-		</div>
-		<div class="menu-row">
-			<MenuTile
-				photoUrl="https://images.theconversation.com/files/525691/original/file-20230511-19-w9pz4k.jpg?ixlib=rb-1.1.0&rect=5%2C2%2C1905%2C1276&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
-				name="Seasonal Wine"
-				desc="A great meal becomes perfect when combined with a good wine"
-				pricedesc="Glass"
-				price="100"
-				pricedesc2="Bottle"
-				price2="1500"
-			/>
-			<MenuTile
-				photoUrl="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_512,h_512/https://www.adityabirlacapital.com/healthinsurance/active-together/wp-content/uploads/2019/12/How-Are-Espressos-Good-For-Health_blog-1.gif"
-				name="Coffee"
-				desc="The best coffee you can have from the land of Indonesia"
-				pricedesc="Americano"
-				price="25"
-				pricedesc2="Latte"
-				price2="30"
-			/>
-		</div>
+		{#each menus as menu}
+			<MenuTile photoUrl={menu.photoUrl} name={menu.name} desc={menu.desc} price={menu.price} pricedesc={menu.pricedesc} price2={menu.price2} pricedesc2={menu.pricedesc2}/>
+		{/each}
 	</div>
 </body>
 
@@ -122,22 +112,28 @@
 	}
 
 	div.menu-area {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 16px;
 	}
-
-	div.menu-row {
-		display: flex;
-		flex-direction: row;
-		gap: 16px;
-	}
-	@media (min-width: 800px) {
+	@media (min-width: 600px) {
 		div.menu-area {
-			flex-direction: row;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 		}
-		div.menu-row {
-			flex: 1;
+	}
+	@media (max-width: 600px) {
+		div.menu-area {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 400px) {
+		div.menu-area {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (max-width: 200px) {
+		div.menu-area {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
 		}
 	}
 </style>
