@@ -2,10 +2,6 @@
       export let name: string;
       export let desc: string;
       export let photoUrl: string;
-      export let pricedesc: string;
-      export let pricedesc2: string;
-      export let price: string;
-      export let price2: string; 
 </script>
     <div class="menu-tile">
       <div class="menu-photo">
@@ -14,12 +10,12 @@
       <div class="menu-tile-name">{name}</div>
       <div class="menu-tile-description">{desc}</div>
       <div class="menu-price-row">
-        <span class="price-description">{pricedesc}</span>
-        <span>{price}</span>
-      </div> 
+        <span class="price-description"></span>
+        <span>35</span>
+      </div>
       <div class="menu-price-row">
-        <span class="price-description">{pricedesc2}</span>
-        <span>{price2}</span>
+        <span class="price-description">+ Grilled Salmon</span>
+        <span>55</span>
       </div>
     </div>
 <style>
