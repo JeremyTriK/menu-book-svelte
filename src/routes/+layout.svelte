@@ -3,12 +3,13 @@
 	<meta name="viewport" content="width=device-width" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
-	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap"
-	rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap"rel="stylesheet"
+    />
 </svelte:head>
 <slot/>
 <style>
     /**CSS Reset**/
+    *,
     :global(html),
 	:global(body) {
 		font-family: 'Barlow';
