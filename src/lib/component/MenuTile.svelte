@@ -1,9 +1,19 @@
 <script lang="ts">
+	    import { cartCounter } from "$lib/store/order";
       import MenuPrice from "./MenuPrice.svelte";
       export let name: string;
       export let desc: string;
       export let photoUrl: string;
       export let prices: {label:string; price:number}[]
+      function increase() {
+        cartCounter.update((n) => n + 1);
+      }
+      function decrease() {
+        cartCounter.update((n) => n - 1);
+      }
+      const add = () => {
+
+      }
 </script>
   <div class="menu-tile">
       <div class="menu-photo">
@@ -17,6 +27,8 @@
       {#each prices as pri}
         <MenuPrice label={pri.label} price={pri.price} />
       {/each}
+    <button class="add" on:click={increase} >Tambah</button>
+    <button class="min" on:click={decrease} >Kurang</button>
   </div>
 <style>
   div.menu-tile-name {
@@ -44,5 +56,19 @@
     aspect-ratio: 1;
     object-fit: cover;
     max-width: 100%;
+  }
+  button {
+    margin:2px;
+    border:none;
+  }
+  .add { 
+    background-color:#f44336; 
+    color:white;
+  }
+  .min {
+    background-color:white; 
+    color:#f44336; 
+    border-color:#f44336; 
+    border-radius:2px
   }
 </style>
