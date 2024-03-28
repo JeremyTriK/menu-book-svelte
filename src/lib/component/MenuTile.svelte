@@ -58,17 +58,19 @@
     max-width: 100%;
   }
   button {
-    margin:2px;
-    border:none;
+    margin:4px;
   }
   .add { 
     background-color:#f44336; 
     color:white;
+    border:none;
+    padding:8px
   }
   .min {
     background-color:white; 
     color:#f44336; 
     border-color:#f44336; 
-    border-radius:2px
+    border-radius:1px;
+    padding: 8px;
   }
 </style>
